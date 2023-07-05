@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LoL</title>
+    <link href="https://unpkg.com/mvp.css" rel="stylesheet" />
+  </head>
+  <style>
+  </style>
+  <body>
+    <header>
+      <h1>LOL</h1>
+        <div class="text-align: center; margin: auto;">
+          <form id="search_form" action="/search" style="display: inline-block;">
+            <input
+              type="search"
+              placeholder="keyword"
+              id="search_input"
+              name="q"
+            />
+            <button type="submit">검색</button>
+          </form>
+        </div>
+        <div>
+          <h3 style="text-align: center;">{{games|length}}개 데이터 수집..</h3>
+        </div>
+    </header>
+    <main>
+      <section class="flex-wrap: nowarp;">
+        {% for game in games %}
+          <div>
+            <p>Tier:{{game.tier + division}} || LeagueId:{{game.leagueId}} || 소환사명:{{game.summonerName}}</p>
+          </div>
+        {% endfor %}
+      </section>
+    </main>
+  </body>
+</html>
